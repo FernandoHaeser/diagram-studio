@@ -11,5 +11,6 @@ export { Landing } from './Landing';
 export { Inspector } from './Inspector';
 export { Router } from './Router';
 export { Sidebar } from './Sidebar';
+export { ThemeToggle } from './ThemeToggle';
 export { Toolbar } from './Toolbar';
 export { TopBar } from './TopBar';

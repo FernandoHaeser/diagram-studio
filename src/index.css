@@ -19,10 +19,47 @@
   --color-accent: #eb6c36;
   --color-accent-tint: rgba(235, 108, 54, 0.08);
   --color-link: #2e5aa8;
+  --color-surface: #ffffff;
+  --color-danger: #b91c1c;
+  --color-danger-tint: #fef2f2;
 
   --font-sans: 'Geist Sans', system-ui, sans-serif;
   --font-mono: 'Geist Mono', ui-monospace, monospace;
   --font-serif: 'Instrument Serif', Georgia, serif;
+}
+
+/* Tema escuro: só redefine os tokens; as classes utilitárias já leem as variáveis. */
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --color-paper: #14161f;
+  --color-paper-2: #232636;
+  --color-ink: #e7e9f0;
+  --color-muted: #aab1c3;
+  --color-soft: #838ba0;
+  --color-rule: rgba(231, 233, 240, 0.12);
+  --color-rule-solid: #3a3f52;
+  --color-accent: #f0824f;
+  --color-accent-tint: rgba(240, 130, 79, 0.14);
+  --color-link: #7ea6ec;
+  --color-surface: #1c1f2b;
+  --color-danger: #f87171;
+  --color-danger-tint: rgba(248, 113, 113, 0.12);
+}
+
+/* A folha do diagrama continua clara no tema escuro: é o mesmo desenho que vai para PNG/SVG. Manter em sincronia com o @theme acima. */
+:root[data-theme='dark'] .sheet-light {
+  color-scheme: light;
+  --color-paper: #f5f5f5;
+  --color-paper-2: #ececec;
+  --color-ink: #2d3142;
+  --color-muted: #4f5d75;
+  --color-soft: #7a8399;
+  --color-rule: rgba(45, 49, 66, 0.12);
+  --color-rule-solid: #bfc0c0;
+  --color-accent: #eb6c36;
+  --color-accent-tint: rgba(235, 108, 54, 0.08);
+  --color-link: #2e5aa8;
+  --color-surface: #ffffff;
 }
 
 @layer base {

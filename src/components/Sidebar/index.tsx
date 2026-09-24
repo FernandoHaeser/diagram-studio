@@ -8,6 +8,7 @@ import { Button } from '../Button';
 import { Icon } from '../Icon';
 import { IconButton } from '../IconButton';
 import { NewDiagramMenu } from '../NewDiagramMenu';
+import { ThemeToggle } from '../ThemeToggle';
 import { sidebarStyles as s } from './styles';
 
 export function Sidebar() {
@@ -22,9 +23,12 @@ export function Sidebar() {
   return (
     <nav className={s.root} aria-label="Diagramas do projeto">
       <div className={s.brand}>
-        <a href="#/" className={s.wordmark} title="Voltar à página inicial">
-          digstdio
-        </a>
+        <div className={s.brandRow}>
+          <a href="#/" className={s.wordmark} title="Voltar à página inicial">
+            digstdio
+          </a>
+          <ThemeToggle />
+        </div>
         <div className={s.tagline}>Documentação de software</div>
       </div>
       <div className={s.top}>

@@ -2,6 +2,7 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
 import { Router } from '@/components';
+import '@/lib/theme';
 import { preloadFonts } from '@/lib/fonts';
 import { useStore } from '@/lib/store';
 

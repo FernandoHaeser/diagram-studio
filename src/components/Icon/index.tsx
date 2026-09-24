@@ -15,6 +15,8 @@ const paths = {
   upload: <path d="M12 16V5m0 0L8 9m4-4l4 4M5 20h14" />,
   close: <path d="M6 6l12 12M18 6L6 18" />,
   'chevron-down': <path d="M6 9l6 6 6-6" />,
+  sun: <><circle cx="12" cy="12" r="4" /><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6L7 7M17 17l1.4 1.4M5.6 18.4L7 17M17 7l1.4-1.4" /></>,
+  moon: <path d="M20 14.5A8 8 0 019.5 4a8 8 0 1010.5 10.5z" />,
   swap: <path d="M7 4L3 8l4 4M3 8h14M17 20l4-4-4-4M21 16H7" />,
   image: <><rect x="3.5" y="4.5" width="17" height="15" rx="2" /><circle cx="9" cy="10" r="1.6" /><path d="M4 17l5-5 4 4 3-3 4 4" /></>,
   code: <path d="M8 8l-4 4 4 4M16 8l4 4-4 4" />,

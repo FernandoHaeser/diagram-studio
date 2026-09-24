@@ -1,7 +1,7 @@
 export const heroStyles = {
   svg: 'w-full h-auto',
-  table: 'fill-white stroke-rule-solid',
-  tableFocal: 'fill-white stroke-accent',
+  table: 'fill-surface stroke-rule-solid',
+  tableFocal: 'fill-surface stroke-accent',
   header: 'fill-paper-2',
   headerFocal: 'fill-accent-tint',
   name: 'fill-ink font-mono text-[12px] font-semibold',

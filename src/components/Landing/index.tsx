@@ -1,5 +1,6 @@
 import { specList } from '@/diagrams';
 import { HeroDiagram } from '../HeroDiagram';
+import { ThemeToggle } from '../ThemeToggle';
 import { Icon, type IconName } from '../Icon';
 import { landingStyles as s } from './styles';
 
@@ -18,9 +19,12 @@ export function Landing() {
       <div className={s.wrap}>
         <header className={s.nav}>
           <span className={s.wordmark}>digstdio</span>
-          <a className={s.navLink} href="#/app">
-            Abrir o editor
-          </a>
+          <div className={s.navRight}>
+            <a className={s.navLink} href="#/app">
+              Abrir o editor
+            </a>
+            <ThemeToggle />
+          </div>
         </header>
 
         <section className={s.hero}>

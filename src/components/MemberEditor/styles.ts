@@ -11,7 +11,7 @@ export const memberStyles = {
   chips: 'mt-1 flex flex-wrap items-center gap-1',
   chip: 'rounded-[4px] border px-1.5 py-0.5 font-mono text-[10px] font-medium tracking-wide transition-colors',
   chipOn: 'border-ink bg-ink text-paper',
-  chipOff: 'border-rule-solid bg-white text-soft hover:border-ink hover:text-ink',
+  chipOff: 'border-rule-solid bg-surface text-soft hover:border-ink hover:text-ink',
   empty: 'rounded-md border border-dashed border-rule-solid px-2 py-3 text-center text-[12px] text-soft',
   small: 'h-6 w-6',
 } as const;

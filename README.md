@@ -1,4 +1,4 @@
-# Diagram Studio
+# digstdio
 
 Editor visual de diagramas para documentação de software, no estilo do skill `/diagram-design`
 (Geist, Instrument Serif, grade de 4px, conectores ortogonais arredondados, legenda em tira).
@@ -65,7 +65,7 @@ autenticação na frente se for expor fora da sua máquina: o app em si não tem
 ## Fluxo de trabalho com o Claude e ajustes manuais
 
 1. Peça o diagrama ao Claude com `/diagram-design` e salve o `.html` (ou o `.svg`).
-2. No Diagram Studio, clique em **Importar** (ou arraste o arquivo para a janela).
+2. No digstdio, clique em **Importar** (ou arraste o arquivo para a janela).
 3. Ajuste na mão: mova peças, renomeie, mude o tipo visual (destaque, armazenamento, externo...), religue setas.
 4. **Exportar** em PNG/SVG. O SVG exportado carrega o modelo embutido: importar esse mesmo SVG
    restaura tudo editável, sem perdas.

@@ -5,13 +5,13 @@ detectado pelo conteúdo, não pela extensão.
 
 | Origem | Arquivo | Resultado |
 |---|---|---|
-| Projeto do Diagram Studio | `.json` | Todos os diagramas do arquivo são adicionados. |
-| SVG exportado pelo Diagram Studio | `.svg` | Restaura o diagrama **exatamente** (tipo, peças, relações, estilos). |
+| Projeto do digstdio | `.json` | Todos os diagramas do arquivo são adicionados. |
+| SVG exportado pelo digstdio | `.svg` | Restaura o diagrama **exatamente** (tipo, peças, relações, estilos). |
 | Diagrama do `/diagram-design` | `.html` ou `.svg` | Reconstruído por heurística como diagrama de **Arquitetura**. |
 
 Imagens (`.png`) não são importáveis: não carregam a estrutura do desenho.
 
-## 1. SVG do Diagram Studio (sem perdas)
+## 1. SVG do digstdio (sem perdas)
 
 Todo SVG exportado embute o modelo completo num bloco `<metadata id="diagram-studio-model">`,
 junto do link do repositório. Ao importar, esse bloco é lido e o diagrama volta idêntico,
@@ -24,7 +24,7 @@ maior do arquivo e reconstrói a estrutura a partir das convenções do skill.
 
 ### O que é reconhecido
 
-| No SVG do skill | Vira no Diagram Studio |
+| No SVG do skill | Vira no digstdio |
 |---|---|
 | `rect`/`ellipse` com traço visível, largura ≥ 56 e altura ≥ 28 | **Caixa** |
 | `polygon` de 4 pontos com traço (losango) | Caixa com formato de **decisão** |
@@ -77,7 +77,7 @@ são aplicadas; rotações não.
   não têm estrutura de caixas/setas e não são suportados; o app avisa.
 - Uma seta só é importada se as **duas pontas** encostarem (até 14px) em caixas. As que não
   encostam são contadas no aviso "N seta(s) ignorada(s)".
-- Setas curvas são reduzidas a ponta inicial e final; o Diagram Studio recalcula o traçado
+- Setas curvas são reduzidas a ponta inicial e final; o digstdio recalcula o traçado
   ortogonal, então o desenho das linhas pode diferir do original.
 - Elementos decorativos (números grandes de fundo, legenda, fundo pontilhado) são descartados.
   A legenda é regenerada automaticamente.

@@ -22,7 +22,9 @@ export function Sidebar() {
   return (
     <nav className={s.root} aria-label="Diagramas do projeto">
       <div className={s.brand}>
-        <div className={s.wordmark}>Diagram Studio</div>
+        <a href="#/" className={s.wordmark} title="Voltar à página inicial">
+          digstdio
+        </a>
         <div className={s.tagline}>Documentação de software</div>
       </div>
       <div className={s.top}>
@@ -61,7 +63,7 @@ export function Sidebar() {
       </div>
       <div className={s.foot}>
         <div className={s.footButtons}>
-          <Button icon="upload" className="flex-1" title="Importa projeto (.json), diagrama do Diagram Studio ou do /diagram-design (.html, .svg)" onClick={() => fileRef.current?.click()}>
+          <Button icon="upload" className="flex-1" title="Importa projeto (.json), diagrama do digstdio ou do /diagram-design (.html, .svg)" onClick={() => fileRef.current?.click()}>
             Importar
           </Button>
           <Button
@@ -69,7 +71,7 @@ export function Sidebar() {
             className="flex-1"
             title="Baixa todos os diagramas em um único .json"
             disabled={!order.length}
-            onClick={() => download('diagram-studio-projeto.json', new Blob([useStore.getState().exportProject()], { type: 'application/json' }))}
+            onClick={() => download('digstdio-projeto.json', new Blob([useStore.getState().exportProject()], { type: 'application/json' }))}
           >
             Projeto
           </Button>

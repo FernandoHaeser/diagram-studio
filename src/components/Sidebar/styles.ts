@@ -1,7 +1,7 @@
 export const sidebarStyles = {
   root: 'flex h-full min-h-0 flex-col border-r border-rule bg-white',
   brand: 'border-b border-rule px-4 pb-4 pt-5',
-  wordmark: 'font-sans text-[22px] font-semibold leading-none tracking-tight text-ink',
+  wordmark: 'block font-sans text-[22px] font-semibold leading-none tracking-tight text-ink',
   tagline: 'mt-1.5 font-mono text-[9px] font-medium uppercase tracking-[0.18em] text-muted',
   top: 'px-3 pt-3',
   listTitle: 'px-4 pb-1.5 pt-4 font-mono text-[9px] font-medium uppercase tracking-[0.18em] text-muted',

@@ -1,0 +1,15 @@
+export const heroStyles = {
+  svg: 'w-full h-auto',
+  table: 'fill-white stroke-rule-solid',
+  tableFocal: 'fill-white stroke-accent',
+  header: 'fill-paper-2',
+  headerFocal: 'fill-accent-tint',
+  name: 'fill-ink font-mono text-[12px] font-semibold',
+  col: 'fill-ink font-mono text-[10.5px]',
+  type: 'fill-soft font-mono text-[10px]',
+  tagPk: 'fill-ink font-mono text-[8.5px] font-semibold',
+  tagFk: 'fill-link font-mono text-[8.5px] font-semibold',
+  line: 'fill-none stroke-muted',
+  card: 'fill-muted font-mono text-[10px]',
+  label: 'fill-soft font-sans text-[10px] italic',
+} as const;

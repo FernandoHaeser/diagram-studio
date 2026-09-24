@@ -36,6 +36,31 @@ npm run dev      # http://localhost:5173
 | `npm run build` | Checagem de tipos + build de produção em `dist/`. |
 | `npm run preview` | Serve o build. |
 | `npm run typecheck` | Só a checagem de tipos. |
+| `npm run docker:up` / `docker:down` / `docker:logs` | Sobe, derruba e acompanha o container. |
+
+## Docker
+
+A imagem compila o front e serve só o `dist/` com nginx **sem privilégios** (usuário não-root,
+sistema de arquivos somente leitura, sem capabilities). A porta é publicada em `0.0.0.0`, então
+o app fica acessível por todas as interfaces do host: `localhost`, a LAN e as redes bridge
+(`docker0` e as customizadas).
+
+```bash
+docker compose up -d --build     # ou: npm run docker:up
+# abre http://localhost:8080
+docker compose down              # ou: npm run docker:down
+```
+
+| Item | Detalhe |
+|---|---|
+| Porta | `8080` por padrão; troque com `PORT=9000 docker compose up -d`. |
+| Dentro do container | nginx escuta em `8080` (IPv4 e IPv6). |
+| Outros containers | Alcançam pelo host: `http://host.docker.internal:8080`. Para falar direto pelo nome do serviço, conecte a rede: `docker network connect <rede> diagram-studio` e use `http://diagram-studio:8080`. |
+| Saúde | `HEALTHCHECK` embutido; veja com `docker ps` ou `docker inspect diagram-studio`. |
+| Segurança | CSP restritiva e cabeçalhos de proteção definidos em `nginx.conf`. |
+
+Como o app publica em todas as interfaces, use rede confiável ou coloque um proxy com
+autenticação na frente se for expor fora da sua máquina: o app em si não tem login.
 
 ## Fluxo de trabalho com o Claude e ajustes manuais
 

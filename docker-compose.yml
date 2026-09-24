@@ -1,0 +1,16 @@
+services:
+  diagram-studio:
+    build: .
+    image: diagram-studio:latest
+    container_name: diagram-studio
+    restart: unless-stopped
+    ports:
+      # 0.0.0.0 publica em todas as interfaces do host (docker0, bridges customizadas, LAN).
+      - "0.0.0.0:${PORT:-8080}:8080"
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true

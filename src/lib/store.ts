@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import type { Diagram, DiagramEdge, DiagramNode, DiagramMeta, DiagramType, Pt, Selection, Tool } from '@/types/diagram';
-import { getSpec, nodeSpec, specList, specs } from '@/diagrams';
+import { getSpec, nodeSpec, specs } from '@/diagrams';
 import { snap, uid } from './geometry';
 
 interface History {
@@ -312,13 +312,5 @@ export const useStore = create<StoreState>()(
     },
   ),
 );
-
-/** Na primeira visita, cria um exemplo de cada tipo para o usuário enxergar o que dá para fazer. */
-export function seedIfEmpty() {
-  const s = useStore.getState();
-  if (s.order.length) return;
-  specList.forEach((spec) => s.createDiagram(spec.type, true));
-  useStore.getState().setActive(useStore.getState().order[0]);
-}
 
 export const useActiveDiagram = () => useStore((s) => (s.activeId ? s.diagrams[s.activeId] : null));

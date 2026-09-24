@@ -3,9 +3,8 @@ import { createRoot } from 'react-dom/client';
 import './index.css';
 import { AppShell } from '@/components';
 import { preloadFonts } from '@/lib/fonts';
-import { seedIfEmpty, useStore } from '@/lib/store';
+import { useStore } from '@/lib/store';
 
-seedIfEmpty();
 void preloadFonts().then(() => useStore.getState().bumpFonts());
 
 createRoot(document.getElementById('root')!).render(

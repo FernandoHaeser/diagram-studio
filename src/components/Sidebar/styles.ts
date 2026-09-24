@@ -1,0 +1,18 @@
+export const sidebarStyles = {
+  root: 'flex h-full min-h-0 flex-col border-r border-rule bg-white',
+  brand: 'border-b border-rule px-4 pb-4 pt-5',
+  wordmark: 'font-sans text-[22px] font-semibold leading-none tracking-tight text-ink',
+  tagline: 'mt-1.5 font-mono text-[9px] font-medium uppercase tracking-[0.18em] text-muted',
+  top: 'px-3 pt-3',
+  listTitle: 'px-4 pb-1.5 pt-4 font-mono text-[9px] font-medium uppercase tracking-[0.18em] text-muted',
+  list: 'min-h-0 flex-1 overflow-y-auto px-2 pb-2',
+  item: 'group flex w-full items-center gap-2.5 rounded-md border border-transparent px-2 py-2 text-left transition-colors hover:bg-paper-2',
+  itemActive: 'border-rule-solid bg-paper',
+  itemIcon: 'text-muted',
+  itemName: 'block truncate text-[13px] font-medium text-ink',
+  itemType: 'block truncate font-mono text-[10px] text-soft',
+  itemActions: 'ml-auto flex shrink-0 opacity-0 transition-opacity group-hover:opacity-100 group-focus-within:opacity-100',
+  foot: 'border-t border-rule p-3',
+  footButtons: 'flex gap-2',
+  repo: 'mt-3 block truncate font-mono text-[10px] text-soft transition-colors hover:text-ink',
+} as const;

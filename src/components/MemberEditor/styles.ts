@@ -1,0 +1,16 @@
+export const memberStyles = {
+  root: 'mb-3',
+  head: 'mb-2 flex items-center justify-between',
+  title: 'text-[12px] text-muted',
+  row: 'mb-1.5 rounded-md border border-rule bg-paper p-1.5',
+  line: 'flex items-center gap-1',
+  actions: 'mt-1 flex items-center justify-end gap-0.5',
+  vis: 'w-11 shrink-0',
+  type: 'w-24 shrink-0',
+  chips: 'mt-1 flex flex-wrap items-center gap-1',
+  chip: 'rounded-[4px] border px-1.5 py-0.5 font-mono text-[10px] font-medium tracking-wide transition-colors',
+  chipOn: 'border-ink bg-ink text-paper',
+  chipOff: 'border-rule-solid bg-white text-soft hover:border-ink hover:text-ink',
+  empty: 'rounded-md border border-dashed border-rule-solid px-2 py-3 text-center text-[12px] text-soft',
+  small: 'h-6 w-6',
+} as const;

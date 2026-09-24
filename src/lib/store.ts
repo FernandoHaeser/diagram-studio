@@ -21,6 +21,8 @@ interface StoreState {
   focusTick: number;
   fontTick: number;
   history: Record<string, History>;
+  /** Área de transferência interna (só memória): a peça copiada e quantas vezes já foi colada. */
+  clipboard: { type: DiagramType; node: DiagramNode; pastes: number } | null;
 
   createDiagram: (type: DiagramType, withExample: boolean) => string;
   removeDiagram: (id: string) => void;
@@ -50,6 +52,9 @@ interface StoreState {
   reverseEdge: (id: string) => void;
   removeSelection: () => void;
   duplicateSelection: () => void;
+  copySelection: () => void;
+  cutSelection: () => void;
+  pasteClipboard: () => void;
 
   addDiagrams: (list: Diagram[]) => void;
   exportProject: () => string;
@@ -97,6 +102,7 @@ export const useStore = create<StoreState>()(
         order: [],
         activeId: null,
         selection: null,
+        clipboard: null,
         tool: { type: 'select' },
         pendingFrom: null,
         notice: null,
@@ -275,6 +281,31 @@ export const useStore = create<StoreState>()(
           get().checkpoint();
           write({ ...d, nodes: [...d.nodes, copy] });
           set({ selection: { type: 'node', id: copy.id } });
+        },
+        copySelection: () => {
+          const d = active();
+          const sel = get().selection;
+          if (!d || sel?.type !== 'node') return;
+          const src = d.nodes.find((n) => n.id === sel.id);
+          if (!src) return;
+          set({ clipboard: { type: d.type, node: { ...src, flags: { ...src.flags }, members: cloneMembers(src.members), methods: cloneMembers(src.methods) }, pastes: 0 } });
+        },
+        cutSelection: () => {
+          if (get().selection?.type !== 'node') return;
+          get().copySelection();
+          get().removeSelection();
+        },
+        pasteClipboard: () => {
+          const d = active();
+          const clip = get().clipboard;
+          // Os tipos de peça mudam de um diagrama para outro, então só cola no mesmo tipo.
+          if (!d || !clip || clip.type !== d.type) return;
+          const step = 24 * (clip.pastes + 1);
+          const src = clip.node;
+          const copy: DiagramNode = { ...src, id: uid(), x: src.x + step, y: src.y + step, flags: { ...src.flags }, members: cloneMembers(src.members), methods: cloneMembers(src.methods) };
+          get().checkpoint();
+          write({ ...d, nodes: [...d.nodes, copy] });
+          set({ selection: { type: 'node', id: copy.id }, clipboard: { ...clip, pastes: clip.pastes + 1 } });
         },
 
         addDiagrams: (list) => {

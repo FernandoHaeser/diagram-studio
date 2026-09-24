@@ -73,7 +73,7 @@ autenticação na frente se for expor fora da sua máquina: o app em si não tem
 ## Atalhos
 
 `V` selecionar · `H` navegar · `1`–`9` escolher peça/relação · `Espaço`+arrastar mover o quadro ·
-`⌘Z` / `⇧⌘Z` desfazer/refazer · `⌘D` duplicar · `Delete` excluir · setas ajustam a posição (`⇧` = 16px) ·
+`⌘Z` / `⇧⌘Z` desfazer/refazer · `⌘D` duplicar · `⌘C` / `⌘X` / `⌘V` copiar, recortar e colar peça · `Delete` excluir · setas ajustam a posição (`⇧` = 16px) ·
 `0` ajustar à tela · `+` `-` zoom.
 
 ## Estrutura

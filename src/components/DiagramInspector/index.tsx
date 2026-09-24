@@ -17,6 +17,7 @@ const SHORTCUTS: [string, string][] = [
   ['Espaço + arrastar', 'Mover o quadro'],
   ['⌘Z / ⇧⌘Z', 'Desfazer / refazer'],
   ['⌘D', 'Duplicar peça'],
+  ['⌘C / ⌘X / ⌘V', 'Copiar / recortar / colar peça'],
   ['Delete', 'Excluir seleção'],
   ['Setas', 'Ajustar posição (⇧ = 16px)'],
   ['0  +  -', 'Ajustar à tela, zoom'],

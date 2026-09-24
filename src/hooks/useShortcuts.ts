@@ -49,6 +49,21 @@ export function useShortcuts({ onSpace, onFit, onZoom }: Options) {
         st.duplicateSelection();
         return;
       }
+      if (mod && key === 'c') {
+        e.preventDefault();
+        st.copySelection();
+        return;
+      }
+      if (mod && key === 'x') {
+        e.preventDefault();
+        st.cutSelection();
+        return;
+      }
+      if (mod && key === 'v') {
+        e.preventDefault();
+        st.pasteClipboard();
+        return;
+      }
       if (mod) return;
       if (key === 'escape') {
         st.setTool({ type: 'select' });

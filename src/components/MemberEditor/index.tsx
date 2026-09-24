@@ -77,6 +77,7 @@ export function MemberEditor({ title, mode, items, addLabel, onChange }: MemberE
             <TextInput
               mono
               aria-label="Nome"
+              className={s.name}
               value={m.text}
               onFocus={cp.arm}
               onChange={(e) => {

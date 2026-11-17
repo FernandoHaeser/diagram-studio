@@ -31,6 +31,7 @@ const paths = {
   'n-actor': <><circle cx="12" cy="6" r="2.5" /><path d="M12 8.5V15M7 11h10M12 15l-3.5 5M12 15l3.5 5" /></>,
   'n-usecase': <ellipse cx="12" cy="12" rx="9" ry="5.5" />,
   'n-system': <rect x="3.5" y="4.5" width="17" height="15" rx="2" strokeDasharray="3 2.5" />,
+  'n-package': <><path d="M3.5 8V19.5h17V8z" /><path d="M3.5 8V5h7l1.5 3" /></>,
   'n-note': <><path d="M5 4h10l4 4v12H5z" /><path d="M15 4v4h4M8 12h8M8 15.5h5" /></>,
   'n-class': <><rect x="4" y="4" width="16" height="16" rx="2" /><path d="M4 9h16M4 15h16" /></>,
   'n-interface': <><circle cx="8" cy="12" r="3.5" /><path d="M11.5 12H21" /></>,

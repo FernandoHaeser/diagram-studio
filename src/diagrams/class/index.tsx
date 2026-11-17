@@ -2,7 +2,7 @@ import { SvgText } from '@/components/SvgText';
 import { C } from '@/lib/tokens';
 import { snapUp, textWidth, uid } from '@/lib/geometry';
 import type { DiagramNode, Member } from '@/types/diagram';
-import { hl, linkKind, makeEdge, makeNode, noteKind, noteRule, SwLine, SwRect, sw } from '../shared';
+import { groupKind, hl, linkKind, makeEdge, makeNode, noteKind, noteRule, SwLine, SwRect, sw } from '../shared';
 import type { DiagramSpec, LegendItem, NodeKindSpec } from '../types';
 
 const ROW = 20;
@@ -124,7 +124,7 @@ export const classSpec: DiagramSpec = {
   icon: 'dg-class',
   eyebrow: 'DIAGRAMA UML · CLASSES',
   cardOptions: CARDS,
-  nodeKinds: [classKind, interfaceKind, enumKind, noteKind],
+  nodeKinds: [classKind, interfaceKind, enumKind, groupKind, noteKind],
   edgeKinds: [
     { kind: 'association', label: 'Associação', hint: 'Relação estrutural entre duas classes, com multiplicidade.', icon: 'e-assoc', markers: () => ({}), fields: [...relFields] },
     { kind: 'directed', label: 'Associação direcionada', hint: 'Só a origem conhece o destino (navegabilidade).', icon: 'e-directed', markers: () => ({ end: 'arrow-open' }), fields: [...relFields] },
@@ -157,8 +157,9 @@ export const classSpec: DiagramSpec = {
   },
   warnings: (d) => {
     const w: string[] = [];
-    const classes = d.nodes.filter((n) => n.kind !== 'note').length;
-    if (classes > 10) w.push(`${classes} tipos no diagrama: considere separar por pacote/módulo.`);
+    const classes = d.nodes.filter((n) => n.kind !== 'note' && n.kind !== 'group').length;
+    const grouped = d.nodes.some((n) => n.kind === 'group');
+    if (classes > 10 && !grouped) w.push(`${classes} tipos no diagrama: considere separar em grupos (pacotes/módulos).`);
     return w;
   },
   example: () => {

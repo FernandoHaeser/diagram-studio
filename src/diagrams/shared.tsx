@@ -78,6 +78,36 @@ export const noteKind: NodeKindSpec = {
   },
 };
 
+/**
+ * Group (UML package): labeled area that gathers related elements by module or domain.
+ * Membership is geometric: whatever has its top-left corner inside moves with the group.
+ */
+export const groupKind: NodeKindSpec = {
+  kind: 'group',
+  label: 'Grupo',
+  hint: 'Agrupa elementos por módulo ou domínio (pacote). Arraste para levar o que está dentro.',
+  icon: 'n-package',
+  create: () => ({ label: 'Grupo', w: 480, h: 280 }),
+  size: (n) => ({ w: n.w ?? 480, h: n.h ?? 280 }),
+  resizable: true,
+  container: true,
+  connectable: false,
+  back: true,
+  labelName: 'Nome do grupo',
+  render: (n, ctx) => {
+    const w = n.w ?? 480;
+    const h = n.h ?? 280;
+    return (
+      <g>
+        <rect x={n.x} y={n.y} width={w} height={h} rx={8} fill="rgba(45,49,66,0.035)" stroke={hl(ctx, 'rgba(45,49,66,0.14)')} strokeWidth={ctx.selected ? 1.6 : 1} />
+        <SvgText x={n.x + 16} y={n.y + 24} size={8} family="mono" anchor="start" fill={C.soft} spacing="0.16em">
+          {n.label.toUpperCase()}
+        </SvgText>
+      </g>
+    );
+  },
+};
+
 export const linkKind: EdgeKindSpec = {
   kind: 'link',
   label: 'Ligar nota',
